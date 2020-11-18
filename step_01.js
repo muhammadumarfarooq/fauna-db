@@ -5,7 +5,7 @@ fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7
 
 const faunadb = require("faunadb");
 const q = faunadb.query;
-
+// generate database key
 (async () => {
     const client = new faunadb.Client({ secret: "fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7" });
 
