@@ -5,20 +5,16 @@ fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7
 
 const faunadb = require("faunadb");
 const q = faunadb.query;
-// Create a container in the database.
+// Retrive document by index
 
 (async () => {
     const client = new faunadb.Client({ secret: "fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7" });
 
     try {
         const result = await client.query(
-            q.CreateIndex({
-                name: "post_by_title",
-                source: q.Collection("orders"),
-                terms: [{ field: ["data", "title"] }]
-            })
+            q.Get(q.Match(q.Index("post_by_title"), "My data number 3"))
         );
-        console.log("Index Created", result.name);
+        console.log("Data Fetched by index", result);
     } catch (e) {
         console.log("Error", e);
     }
