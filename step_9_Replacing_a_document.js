@@ -5,7 +5,7 @@ fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7
 
 const faunadb = require("faunadb");
 const q = faunadb.query;
-// Updating a document
+// Replacing a document
 
 (async () => {
     const client = new faunadb.Client({ secret: "fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7" });
@@ -17,7 +17,7 @@ const q = faunadb.query;
                 { data: { name: "My name is something" } }
             )
         );
-        console.log("Data Fetched by index", result);
+        console.log("Document replaced", result);
     } catch (e) {
         console.log("Error", e);
     }

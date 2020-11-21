@@ -5,19 +5,18 @@ fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7
 
 const faunadb = require("faunadb");
 const q = faunadb.query;
-// Updating a document
+// Deleting a document
 
 (async () => {
     const client = new faunadb.Client({ secret: "fnAD68eK6bACAlPh4Df77oRqA1Uzs9RtFJWy5_G7" });
 
     try {
         const result = await client.query(
-            q.Update(
+            q.Delete(
                 q.Ref(q.Collection("orders"), "282734844698427904"),
-                { data: { title: "My data number new 33", content: "some data of content" } }
             )
         );
-        console.log("Document updated", result);
+        console.log("Documented deleted", result);
     } catch (e) {
         console.log("Error", e);
     }
